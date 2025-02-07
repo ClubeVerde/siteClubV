@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Planos de Assinatura</h2>
+  <ul>
+    {% for assinatura in assinaturas %}
+      <li>
+        <strong>{{ assinatura.tipo }}</strong> - R$ {{ assinatura.preco }}/mês <br>
+        <em>{{ assinatura.descricao }}</em>
+        <br>
+        <a href="{% url 'assinar_plano' assinatura.id %}">Assinar</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

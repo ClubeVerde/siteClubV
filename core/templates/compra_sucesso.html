@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Compra realizada com sucesso!</h2>
+  <p>Você comprou {{ pedido.produto.nome }} por R$ {{ pedido.produto.preco }}.</p>
+  <a href="{% url 'home' %}">Voltar para a Home</a>
+{% endblock %}

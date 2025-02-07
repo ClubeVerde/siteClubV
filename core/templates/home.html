@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Bem-vindo ao Clube Verde</h2>
+  {% if user.is_authenticated %}
+    <p>Olá, {{ user.username }}! <a href="{% url 'logout' %}">Sair</a></p>
+  {% else %}
+    <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'cadastro' %}">Cadastre-se</a></p>
+  {% endif %}
+{% endblock %}
