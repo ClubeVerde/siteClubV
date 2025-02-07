@@ -11,4 +11,15 @@ urlpatterns = [
     path('assinaturas/', views.lista_assinaturas, name='lista_assinaturas'),
     path('comprar/<int:produto_id>/', views.comprar_produto, name='comprar_produto'),
     path('assinar/<int:assinatura_id>/', views.assinar_plano, name='assinar_plano'),
+    path('pedidos/', views.meus_pedidos, name='meus_pedidos'),
+        # Rotas para Assinaturas
+    path('assinatura/', views.assinar_plano, name='assinar_plano'),
+    path('assinatura/alterar/', views.alterar_assinatura, name='alterar_assinatura'),
+    path('assinatura/cancelar/', views.cancelar_assinatura, name='cancelar_assinatura'),
+    
+    # Rotas para Loja
+    path('loja/', views.listar_produtos, name='listar_produtos'),
+    path('loja/adicionar/<int:produto_id>/', views.adicionar_ao_carrinho, name='adicionar_ao_carrinho'),
+    path('loja/remover/<int:produto_id>/', views.remover_do_carrinho, name='remover_do_carrinho'),
+    path('loja/carrinho/', views.ver_carrinho, name='ver_carrinho'),
 ]

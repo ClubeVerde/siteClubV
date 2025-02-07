@@ -1,15 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Produtos Disponíveis</h2>
-  <ul>
+  <h2 class="text-center text-success">Produtos Disponíveis</h2>
+  <div class="row">
     {% for produto in produtos %}
-      <li>
-        <strong>{{ produto.nome }}</strong> - R$ {{ produto.preco }} <br>
-        <em>{{ produto.descricao }}</em>
-        <br>
-        <a href="{% url 'comprar_produto' produto.id %}">Comprar</a>
-      </li>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ produto.nome }}</h5>
+            <p class="card-text">{{ produto.descricao }}</p>
+            <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+            <a href="{% url 'comprar_produto' produto.id %}" class="btn btn-success">Comprar</a>
+          </div>
+        </div>
+      </div>
     {% endfor %}
-  </ul>
+  </div>
 {% endblock %}

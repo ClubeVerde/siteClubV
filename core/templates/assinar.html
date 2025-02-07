@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Escolha um Plano de Assinatura</h2>
+    <form method="post">
+        {% csrf_token %}
+        <select name="plano">
+            {% for plano in planos %}
+                <option value="{{ plano.id }}">{{ plano.nome }} - R$ {{ plano.preco }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Assinar</button>
+    </form>
+{% endblock %}

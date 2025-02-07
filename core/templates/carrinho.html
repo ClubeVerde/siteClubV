@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Seu Carrinho</h2>
+    <ul>
+        {% for produto in carrinho.produtos.all %}
+            <li>
+                <strong>{{ produto.nome }}</strong> - R$ {{ produto.preco }}<br>
+                <a href="{% url 'remover_do_carrinho' produto.id %}">Remover</a>
+            </li>
+        {% empty %}
+            <li>Seu carrinho está vazio.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'listar_produtos' %}">Continuar Comprando</a>
+{% endblock %}

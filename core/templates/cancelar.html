@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Cancelar Assinatura</h2>
+    <p>Tem certeza de que deseja cancelar sua assinatura?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar Cancelamento</button>
+    </form>
+{% endblock %}
