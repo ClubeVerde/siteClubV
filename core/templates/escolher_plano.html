@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Escolha seu Plano</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="tipo">Tipo de Plano:</label>
+    <select name="tipo">
+        <option value="Básico">Básico</option>
+        <option value="Premium">Premium</option>
+        <option value="VIP">VIP</option>
+    </select>
+
+    <label for="preco">Preço:</label>
+    <input type="text" name="preco" required>
+
+    <label for="descricao">Descrição:</label>
+    <textarea name="descricao" required></textarea>
+
+    <label for="duracao">Duração (meses):</label>
+    <input type="number" name="duracao" required min="1">
+
+    <button type="submit">Escolher Plano</button>
+</form>
+
+{% endblock %}

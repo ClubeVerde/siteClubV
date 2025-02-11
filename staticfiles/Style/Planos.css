@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: "Roboto", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+  }
+  
+.Container {
+    width: 100%;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.topo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Retornar {
+    background: none;
+    border: 1px solid #224F34; 
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px 35px;
+    cursor: pointer;
+    color: #224F34;
+    margin-right: 5px;
+    margin: 10px;
+  }
+
+.Retornar a{
+    text-decoration: none;
+}
+
+.logo{
+    max-width: 120px;
+}
+
+.titulos{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    color: #224F34;
+}
+
+h1{
+    margin-left: 25%;
+}
+
+.Conteudo{
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto; /* Centraliza na tela */
+    position: relative; /* Define como referência para a seta */
+    text-align: center; /* Mantém o texto centralizado */
+    padding: 20px;
+}
+
+.Conteudo img{
+    max-width: 350px;
+
+}
+
+.Conteudo h5{
+    font-size: 16px;
+}
+
+.Conteudo p{
+    text-align: justify;
+    margin-left: 10%;
+}
+
+
+.setaDireita {
+    position: absolute;
+    font-size: 24px;
+    color: #224F34;
+    cursor: pointer;
+    border: none;
+    background-color: #f9f9f9;
+    position: absolute;
+    top: 50%;
+    right: -80%; /* Leva a seta totalmente para fora da div principal */
+    transform: translateY(-50%);
+}
+.setaEsquerda {
+    position: absolute;
+    font-size: 24px;
+    color: #224F34;
+    cursor: pointer;
+    border: none;
+    background-color: #f9f9f9;
+    position: absolute;
+    top: 35%;
+    left: -80%; /* Leva a seta totalmente para fora da div principal */
+    transform: translateY(-50%);
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.setaEsquerdaOrquidea {
+    position: absolute;
+    font-size: 24px;
+    color: #224F34;
+    cursor: pointer;
+    border: none;
+    background-color: #f9f9f9;
+    position: absolute;
+    top: 40%;
+    left: -80%; /* Leva a seta totalmente para fora da div principal */
+    transform: translateY(-50%);
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.Assinar{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: #224F34;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 25px;
+}
+.ancora{
+    display: grid;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+}

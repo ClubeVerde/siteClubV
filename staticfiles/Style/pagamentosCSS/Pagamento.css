@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: "Roboto", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+  }
+
+.container-topo{
+    background-color: #C2EFD4;
+}
+.topo {
+    display: flex;
+    justify-content:flex-start;
+}
+
+.logo  {
+    display: grid;
+    height: 50px;
+    justify-content: center;
+}
+.logo img{
+    width: 100px;
+}
+.Retornar {
+    background: none;
+    border: 1px solid #224F34; 
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px 35px;
+    cursor: pointer;
+    color: #224F34;
+    margin: 15px;
+    margin-top: 50px;
+
+  }
+
+.Retornar a{
+    text-decoration: none;
+}
+
+.container {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px; /* Espaçamento entre os elementos */
+
+  }
+  
+  .identificacao {
+    grid-column: 1;
+  }
+  
+  .content-endereco {
+    grid-column: 2;
+  }
+  
+  .resumo {
+    grid-column: 3;
+  }
+
+
+.content-identificacao{
+    margin-left: 55px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    padding: 25px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+.content-identificacao p{
+    font-size: 20px;
+}
+.content-endereco{
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+   
+}
+
+.content-endereco img{
+    width: 24px;
+}
+.content-endereco h3{
+    background-color: #eee;
+    padding: 25px;
+    text-align: center;
+}
+.form{
+    display: grid;
+}
+
+.form label{
+ font-size: 20px;
+ margin-bottom: 5px;
+ color: #083A50;
+}
+
+.form input{
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 0.5px solid #C2EFD4;
+
+}
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.proximo {
+    background-color: #BEBEBE;
+    color: white;
+    font-weight: bold;
+}
+
+.content-pagamento{
+    border-radius: 10px;
+    padding: 20px;
+    width: 500px;
+    text-align: center;
+    margin-right: 100px;
+}
+
+.Produto{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.Produto img{
+    width: 120px;
+}
+
+.Produto h1{
+    font-size: 20px;
+}
+
+.conteudo-produto{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.resumo-pedido h2 {
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.detalhes {
+    margin-top: 10px;
+}
+
+.linha {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.total {
+    font-weight: bold;
+}
+
+.valor-total {
+    color: blue;
+}
+
+/* Cep detalhado */
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.input-box label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: justify;
+    color: #083A50;
+}
+
+.input-box input {
+    padding: 10px;
+    border: 1px solid #c2efd4;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-box input:focus {
+    border-color: #224F34;
+}
+
+.telefone-box {
+    display: flex;
+    gap: 5px;
+}
+
+.telefone-box select {
+    border: 1px solid #c2efd4;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    background: white;
+}
+
+.telefone-box input {
+    flex: 1;
+}
+
+.entrega{
+    background-color: #224F34;
+    color: white;
+    font-weight: bold;
+}
+
+
+/* tela pagamento */
+
+.form-selection {
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-registered {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card-header {
+    font-weight: bold;
+    color: #777;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-logo {
+    width: 40px;
+}
+
+.card-number {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+}
+
+.delete-link {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+.delete-icon {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.payment-form {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.payment-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+
+
+.save-button {
+    background: #8fd19e;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.save-button:hover {
+    background: #7ac78c;
+}
+
+.content-identificacao{
+    width: 400px;
+}
+.content-identificacao a{
+    text-decoration: none;
+}
+
+/* chekout */
+
+.container-pagamentos {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    padding: 40px 200px;
+}
+
+.container-pagamentos h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    background-color: #eee;
+    padding: 25px;
+}
+
+.delivery-info {
+    padding-left: 40px;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.product img {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    margin-right: 20px;
+    margin-top: 50px;
+}
+
+.product-details {
+    flex: 2;
+    margin-top: 50px;
+}
+
+.product-details h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.product-details p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0 0;
+}
+
+.summary {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.summary .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.summary .total {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.button {
+    display: block;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+    margin-top: 200px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}

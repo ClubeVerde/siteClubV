@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Planos | Clube Verde{% endblock %}
+
+{% block content %}
+    <h1>Escolha o seu plano</h1>
+    
+    <div class="planos-container" style="background-color: #f9f9f9; padding: 40px 20px; border-radius: 8px;">
+        {% for plano in planos %}
+            <div class="plano">
+                <h2>{{ plano.nome }}</h2>
+                <p>{{ plano.descricao }}</p>
+                <p><strong>R$ {{ plano.preco|floatformat:2 }}</strong></p>
+                <a href="{% url 'adicionar_carrinho_plano' id_plano=plano.id %}">
+                    <button>Escolher Plano</button>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

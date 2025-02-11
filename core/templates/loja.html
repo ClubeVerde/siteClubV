@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Style/PagPrincipal.css' %}">
+    <title>Loja | Clube Verde</title>
+</head>
+<body>
+    {% if messages %}
+        <div class="mensagens">
+    {% for mensagem in messages %}
+        <div class="alerta {{ mensagem.tags }}">{{ mensagem }}</div>
+    {% endfor %}
+        </div>
+    {% endif %}
+    <section class="container-topo">
+        <header class="topo">
+            <a href="/">
+                <img src="{% static 'Style/imgs/Logo.png' %}" alt="" class="logo">
+            </a>
+            <div class="informacoes">
+                <a href="{% url 'sobre_nos' %}" class="link-topo">SOBRE NÓS</a>
+                <a href="{% url 'listar_produtos' %}" class="link-topo">LOJA</a>
+                <a href="{% url 'planos' %}" class="link-topo">PLANOS</a>
+                <a href="{% url 'contato' %}" class="link-topo">CONTATO</a>
+                <a href="{% url 'carrinho' %}" class="link-topo">
+                    <img src="{% static 'Style/imgs/carrinho.png' %}" alt="Carrinho" class="carrinho-icon">
+                </a>
+            </div>
+            {% if user.is_authenticated %}
+                <a href="{% url 'minha_pagina' %}">Minha Página</a>
+             {% else %}
+                <a href="{% url 'login' %}">Entrar</a>
+            {% endif %}
+        </header>
+    </section>
+
+    <section class="Container-lojinha">
+        <h1 class="titulo">LOJINHA</h1>
+        <main class="container_Plantas">
+            {% for produto in produtos %}
+            <div class="item">
+                <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
+                <h3>{{ produto.nome }}</h3>
+                <p>{{ produto.tamanho }} | R$ {{ produto.preco }}</p>
+                <p>{{ produto.descricao }}</p>
+                <a href="{% url 'adicionar_carrinho' produto.id %}" class="button-loja">Adicionar ao Carrinho</a>
+            </div>
+            {% empty %}
+            <p>Nenhum produto disponível no momento.</p>
+            {% endfor %}
+        </main>
+    </section>
+
+    <footer class="rodape">
+        <p>© 2025 Clube Verde Ltda. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

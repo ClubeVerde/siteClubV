@@ -1,10 +1,39 @@
-{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Style/Login.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <header class="topo">
+            <img src="{% static 'Style/imgs/Logo.png' %}" alt="" class="logo">
+            <h1 class="title">LOGIN</h1>
+        </header>
 
-{% block content %}
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Entrar</button>
-  </form>
-{% endblock %}
+        {% if messages %}
+            <div class="error-messages">
+                {% for message in messages %}
+                <p class="message {{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form method="POST" class="login" action="{% url 'login' %}">
+            {% csrf_token %}
+            <label for="email">Email</label>
+            <input type="email" name="username" id="email" class="campos" required>
+            <br>
+            <label for="senha">Senha</label>
+            <input type="password" name="password" id="senha" class="campos" required>
+            <a href="{% url 'password_reset' %}" class="esqueceuSenha">ESQUECEU A SENHA?</a>
+            <br>
+            <button type="submit" class="submit">ENTRAR</button>
+        </form>
+        <a href="{% url 'cadastro' %}" class="Cadastro">NÃO TEM CADASTRO?</a>
+    </div>
+</body>
+</html>

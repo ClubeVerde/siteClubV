@@ -1,0 +1,188 @@
+body {
+    font-family: "Roboto", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+}
+
+.topo{
+    display: grid;
+    justify-content: center;
+}
+.topo img {
+    height: 100px;
+    margin-left: 15px;
+}
+
+.container-carrinho {
+    width: 100vw; 
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.content-carrinho {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tabela {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.cabecalho{
+    border-bottom: 1px solid #ddd;
+}
+.cabecalho, .item {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 0.5fr;
+    padding: 15px 20px;
+    width: 100%;
+}
+
+
+.info-produto img {
+    width: 100px;
+    height: auto;
+    margin-right: 15px;
+
+}
+.info-produto {
+    display: flex;
+}
+
+.preco{
+    display: grid;
+    align-items: center;
+}
+
+.quantidade {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.quantidade input {
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.remover {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+}
+
+@media (min-width: 1024px) {
+    .cabecalho, .item {
+        grid-template-columns: 4fr 1fr 1fr 0.5fr; /* Ajusta melhor para telas grandes */
+    }
+}
+
+.container-pagamento{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 200px;     
+}
+.content-cep{
+    margin-left: 20px;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.cep input{
+    padding: 15px 20px;
+    border-width: 2px;
+    border-radius: 10px;
+    border: 2px solid #224F34;
+    background-color: inherit;
+}
+
+.cep button{
+    background-color: #888888;
+      padding: 15px 20px;
+      color: white;
+      border-width: 0;
+      border-radius: 5px;
+      font-size: 15px;
+      margin: 0 10px;
+  }
+
+.cep a{
+    text-decoration: none;
+}
+
+.content-pagamento{
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    margin-right: 100px;
+}
+
+.resumo-pedido h2 {
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.detalhes {
+    margin-top: 10px;
+}
+
+.linha {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.total {
+    font-weight: bold;
+}
+
+.valor-total {
+    color: blue;
+}
+
+.finalizar-compra {
+    background-color: #004d00;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+.finalizar-compra:hover {
+    background-color: #003300;
+}
+
+.retornar-compras{
+    background-color: #004d00;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-bottom: 100px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2);
+}

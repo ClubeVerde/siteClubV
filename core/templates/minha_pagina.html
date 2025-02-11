@@ -1,0 +1,30 @@
+<!-- minha_pagina.html -->
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Minha Página</h2>
+    <div class="informacoes">
+        <p><strong>Nome:</strong> {{ user.username }}</p>
+        <a href="{% url 'alterar_informacoes' %}">Alterar informações</a>
+    </div>
+
+    <div class="pedidos">
+        <h3>Meus Pedidos</h3>
+        {% for pedido in pedidos %}
+            <p>Pedido #{{ pedido.id }} - {{ pedido.status }}</p>
+        {% empty %}
+            <p>Você ainda não fez nenhum pedido.</p>
+        {% endfor %}
+    </div>
+
+    <div class="assinatura">
+        <h3>Plano de Assinatura</h3>
+        {% if assinatura %}
+            <p>Tipo de plano: {{ assinatura.tipo }}</p>
+            <a href="{% url 'alterar_plano' %}">Mudar de plano</a> | 
+            <a href="{% url 'prorrogar_plano' %}">Prorrogar plano</a> | 
+            <a href="{% url 'cancelar_plano' %}">Cancelar plano</a>
+        {% else %}
+            <p>Você ainda não possui um plano de assinatura.</p>
+        {% endif %}
+    </div>
+{% endblock %}

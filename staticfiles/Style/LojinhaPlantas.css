@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+  }
+  
+.Container {
+    width: 100%;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.topo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Retornar {
+    background: none;
+    border: 1px solid #224F34; 
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px 35px;
+    cursor: pointer;
+    color: #224F34;
+    margin-right: 5px;
+    margin: 10px;
+  }
+
+.Retornar a{
+    text-decoration: none;
+}
+
+.lado_direito{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.Compras{
+    background-color: #224F34;
+    border: none;
+    padding: 5px 30px;
+    border-radius: 5px;
+}
+
+.Compras img{
+    max-width: 22px;
+}
+
+.icons{
+    border: none;
+    border-radius: 5px;
+}
+
+.icons img{
+    max-width: 22px;
+}
+
+
+
+.titulo{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    color: #224F34;
+}
+.Navegacao{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    margin: 20px;
+}
+
+.Navegacao a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #224F34;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.Navegacao a:hover, .body_perfil a:focus {
+    border-bottom: 2px solid #224F34;
+}
+
+.container_Plantas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    max-width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+  }
+.item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .item p {
+    font-size: 14px;
+    color: #555;
+  }

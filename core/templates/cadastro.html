@@ -1,10 +1,59 @@
-{% extends "base.html" %}
-
-{% block content %}
-  <h2>Cadastro</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Cadastrar</button>
-  </form>
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Style/CadastroUsuario.css' %}">
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="container">
+        <div class="ladoEsquerdo">
+            <img src="{% static 'Style/imgs/Logo.png' %}" alt="">
+        </div>
+        <form class="ladoDireito" method="POST" action="{% url 'cadastro' %}">
+            {% csrf_token %}
+            <h1>CADASTRO</h1>
+            
+            <div class="form_group1">
+                <input type="text" name="nome" id="nome" placeholder="Nome" required>
+                <input type="text" name="sobrenome" id="Sobrenome" placeholder="Sobrenome" required>
+            </div>
+            <div class="form_group1">
+                <input type="text" name="telefone" id="Telefone" placeholder="Telefone" required>
+                <input type="text" name="cpf" id="CPF" placeholder="CPF" required>
+            </div>
+            <div class="form_group2">
+                <input type="email" name="email" id="email" placeholder="E-mail: exemplo@email.com" required>
+            </div>
+            <div class="form_group1">
+                <input type="password" name="password1" id="password1" placeholder="Senha" required>
+                <input type="password" name="password2" id="password2" placeholder="Confirmar Senha" required>
+            </div>
+            <br>
+            <p>ENDEREÇO</p>
+            <hr style="border: 1px solid #8CCFB3; width: 100%;">
+            <br>
+            <div class="form_group3">
+                <input type="text" name="rua" id="Rua" placeholder="Rua" required>
+                <input type="text" name="numero" id="Numero" placeholder="Número" required>
+                <input type="text" name="cep" id="CEP" placeholder="CEP" required>
+            </div>
+            <div class="form_group3">
+                <input type="text" name="bairro" id="Bairro" placeholder="Bairro" required>
+                <input type="text" name="cidade" id="Cidade" placeholder="Cidade" required>
+                <input type="text" name="estado" id="Estado" placeholder="Estado" required>
+            </div>
+            <br>
+            <p>INFORMAÇÕES ADICIONAIS</p>
+            <hr style="border: 1px solid #8CCFB3; width: 100%;">
+            <br>
+            <div class="form_group2">
+                <input type="text" name="referencia" id="referencia" placeholder="Ponto de Referência">
+            </div>
+            <button type="submit" class="criar">CRIAR</button>
+        </form>
+    </div>
+</body>
+</html>

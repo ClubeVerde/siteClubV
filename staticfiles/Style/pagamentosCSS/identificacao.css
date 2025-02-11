@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: "Roboto", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+  }
+
+.container-topo{
+    background-color: #C2EFD4;
+}
+.topo {
+    display: flex;
+    justify-content:flex-start;
+}
+
+.logo  {
+    display: grid;
+    height: 50px;
+    justify-content: center;
+}
+.logo img{
+    width: 100px;
+}
+.Retornar {
+    background: none;
+    border: 1px solid #224F34; 
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px 35px;
+    cursor: pointer;
+    color: #224F34;
+    margin: 15px;
+    margin-top: 50px;
+
+  }
+
+.Retornar a{
+    text-decoration: none;
+}
+
+.container-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content-main {
+    background: white;
+    width: 380px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 50px;
+    text-align: center;
+    
+}
+
+.topo-main {
+    padding: 16px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    border-radius: 15px 15px 0 0;
+
+}
+
+
+.form-email {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #083A50;
+    text-align: justify;
+}
+
+.form-email input {
+    width: 90%;
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #C2EFD4;
+    border-radius: 5px;
+    outline: none;
+}
+
+.form-email input::placeholder {
+    text-align: left;
+}
+
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.proximo {
+    background-color: #BEBEBE;
+    color: white;
+    font-weight: bold;
+}
+
+.conectar {
+    background-color: #224F34;
+    color: white;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+.img {
+    margin-top: 15px;
+}
+
+.logo-2 {
+    width: 72px;
+}
+
+/* Indentificação 2 */
+
+.content-main2 {
+    background: white;
+    width: 380px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 100px;
+    text-align: center;
+    
+}
+
+
+.form-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.input-box label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: justify;
+    color: #083A50;
+}
+
+.input-box input {
+    padding: 10px;
+    border: 1px solid #c2efd4;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-box input:focus {
+    border-color: #224F34;
+}
+
+.telefone-box {
+    display: flex;
+    gap: 5px;
+}
+
+.telefone-box select {
+    border: 1px solid #c2efd4;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    background: white;
+}
+
+.telefone-box input {
+    flex: 1;
+}
+
+.outro-email{
+    margin-top: 15px;
+    background-color: #BEBEBE;
+    color: white;
+    font-weight: bold;
+}

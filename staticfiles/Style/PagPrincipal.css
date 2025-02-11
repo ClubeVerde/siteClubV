@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: "Roboto", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+}
+
+.container-topo {
+    background-color: #C2EFD4;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.topo .logo {
+    height: 100px;
+    margin-left: 15px;
+}
+
+.link-topo {
+    text-decoration: none;
+    color: #224F34;
+    padding: 15px;
+}
+
+.informacoes {
+    margin-top: 40px;
+}
+
+.button-topo {
+    background: none;
+    border: 1px solid #224F34;
+    border-radius: 5px;
+    padding: 10px 10px;
+    cursor: pointer;
+    color: #224F34;
+    margin-right: 15px;
+    margin-top: 30px;
+}
+
+.meio {
+    display: grid;
+    justify-content: center;
+}
+
+.meio img {
+    width: 550px;
+}
+
+.meio p {
+    margin-left: 110px;
+    color: #267D49;
+}
+
+.button-top2 {
+    background-color: #224F34;
+    padding: 15px 30px;
+    margin-top: 30px;
+    margin-bottom: 200px;
+    margin-left: 35%;
+    color: #C2EFD4;
+    border-width: 0;
+    border-radius: 5px;
+}
+
+.title-planos {
+    display: grid;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.title-planos h1 {
+    margin-left: 110px;
+    color: #224F34;
+}
+
+.title-planos p {
+    margin-left: 35px;
+    color: #224F34;
+}
+
+.planos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    max-width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 15px;
+    margin-top: 100px;
+}
+
+.Plano1 img {
+    width: 250px;
+}
+
+.Plano2 img {
+    width: 230px;
+}
+
+.Plano3 img {
+    width: 200px;
+    height: 250px;
+}
+
+.planos p {
+    text-align: center;
+}
+
+.button-planos {
+    padding: 15px 30px;
+    margin-top: 30px;
+    margin-bottom: 210px;
+    margin-left: 46%;
+    color: #224F34;
+    background-color: #f9f9f9;
+    border-color: #224F34;
+    border-radius: 5px;
+}
+
+.Container-lojinha {
+    width: 100%;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.titulo {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    color: #224F34;
+}
+
+.container_Plantas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 100px;
+    max-width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.item {
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+}
+
+.item img {
+    width: 180px;
+    height: 180px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.item h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.item p {
+    font-size: 14px;
+    color: #555;
+}
+
+.container-oferta {
+    display: grid;
+    justify-content: center;
+    padding-top: 150px;
+    background-color: #C2EFD4;
+}
+
+.content {
+    margin-left: 30%;
+}
+
+.content h1 {
+    text-align: center;
+    font-size: 46px;
+    color: #224F34;
+}
+
+.imgOferta {
+    position: absolute;
+    font-size: 24px;
+    color: #224F34;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    transform: translateY(-50%);
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.text {
+    text-align: center;
+    font-size: 22px;
+}
+
+.contador {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 30px;
+}
+
+.box {
+    text-align: center;
+    font-size: 32px;
+    background-color: white;
+    margin: 10px;
+    padding-top: 15px;
+}
+
+.button-oferta {
+    background-color: #224F34;
+    padding: 25px 50px;
+    margin-top: 30px;
+    margin-bottom: 300px;
+    margin-left: 35%;
+    color: white;
+    border-width: 0;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.container-diferenciais {
+    display: grid;
+    justify-items: center;
+    margin-top: 100px;
+    padding: 0 15px;
+}
+
+.content-diferenciais {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 90%;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 15px;
+    margin-top: 50px;
+}
+
+.diferenciais {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diferenciais img {
+    width: 250px;
+    background-color: #6BC785;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.diferenciais h1 {
+    text-align: center;
+}
+
+.diferenciais p {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.container-feedback {
+    display: grid;
+    justify-items: center;
+    margin-top: 100px;
+}
+
+.content-feedback {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 15px;
+    margin-top: 100px;
+}
+
+.card {
+    background: white;
+    padding: 50px 80px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 300px;
+    transition: transform 0.3s;
+}
+
+.title {
+    font-size: 50px;
+    color: #008000;
+    margin: 0;
+}
+
+.button-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    margin-top: 100px;
+    margin-bottom: 200px;
+}
+
+.button-row button {
+    background-color: #FFFFFF;
+    padding: 15px;
+    color: #224F34;
+    border-width: 0px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.button-row button:hover {
+    background-color: #C2EFD4;
+}
+
+.content-rodape {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: #224F34;
+    gap: 30px; /* Diminui o espaçamento entre as colunas */
+    padding-top: 20px; /* Diminui o espaçamento superior */
+    padding-bottom: 20px; /* Diminui o espaçamento inferior */
+}
+
+.rede-social {
+    margin: 10px;
+}
+
+.rede-social h1 {
+    font-size: 18px; /* Diminui o tamanho do título */
+    color: #FFFFFF;
+}
+
+.rede-social img {
+    width: 35px; /* Diminui o tamanho dos ícones */
+}
+
+.rede-social button {
+    color: #C2EFD4;
+    background-color: #224F34;
+    border-width: 0;
+}
+
+.navegar {
+    margin: 10px;
+}
+
+.navegar h1 {
+    font-size: 18px; /* Diminui o tamanho do título */
+    color: #FFFFFF;
+}
+
+.link a {
+    color: #C2EFD4;
+    padding: 3px; /* Diminui o padding */
+    text-decoration: none;
+}
+
+.contato {
+    margin: 10px;
+    color: #C2EFD4;
+}
+
+.contato h1 {
+    font-size: 18px; /* Diminui o tamanho do título */
+    color: #FFFFFF;
+}
+
+.email {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.email h1 {
+    color: #FFFFFF;
+    font-size: 18px;
+    margin-bottom: 10px; /* Adiciona espaçamento abaixo do título */
+}
+
+.email input {
+    padding: 10px 15px;
+    border-width: 2px;
+    border-radius: 5px;
+    border: 2px solid #A3F3BE;
+    background-color: inherit;
+    margin-bottom: 10px; /* Adiciona espaçamento entre o input e o botão */
+    flex-grow: 1;
+}
+
+.email input::placeholder {
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.email button {
+    background-color: #C2EFD4;
+    padding: 10px 15px;
+    color: #224F34;
+    border-width: 0;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.rodape {
+    background-color: #224F34;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 12px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+.button-loja {
+    background-color: #224F34; /* Cor verde escuro */
+    padding: 10px 20px; /* Menos padding */
+    color: #C2EFD4; /* Cor do texto em branco */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px; /* Diminuindo o tamanho da fonte */
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Para garantir que o link tenha o comportamento de um botão */
+    text-decoration: none; /* Remove o sublinhado do link */
+}
+
+.button-loja:hover {
+    background-color: #1A3B27; /* Cor mais escura no hover */
+}
+.button-loja {
+    background-color: #224F34; /* Cor verde escuro */
+    padding: 10px 20px; /* Menos padding */
+    color: #C2EFD4; /* Cor do texto em branco */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px; /* Diminuindo o tamanho da fonte */
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Para garantir que o link tenha o comportamento de um botão */
+    text-decoration: none; /* Remove o sublinhado do link */
+}
+
+.button-loja:hover {
+    background-color: #1A3B27; /* Cor mais escura no hover */
+}
+.button-loja {
+    background-color: #224F34; /* Cor verde escuro */
+    padding: 10px 20px; /* Menos padding */
+    color: #C2EFD4; /* Cor do texto em branco */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px; /* Diminuindo o tamanho da fonte */
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Para garantir que o link tenha o comportamento de um botão */
+    text-decoration: none; /* Remove o sublinhado do link */
+}
+
+.button-loja:hover {
+    background-color: #1A3B27; /* Cor mais escura no hover */
+}
+.carrinho-icon {
+    width: 30px;
+    height: 30px;
+}

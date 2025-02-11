@@ -1,25 +1,38 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+from .views import adicionar_carrinho, visualizar_carrinho, escolher_plano
 
 urlpatterns = [
-    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('login/', views.user_login, name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
+    path('password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+
     path('cadastro/', views.cadastro, name='cadastro'),
     path('', views.home, name='home'),
+    path('sobre_nos/', views.sobre_nos, name='sobre_nos'),
+    path('loja/', views.loja, name='listar_produtos'),
+    path('contato/', views.contato, name='contato'),
+    path('planos/', views.planos, name='planos'),
     path('produtos/', views.lista_produtos, name='lista_produtos'),
     path('assinaturas/', views.lista_assinaturas, name='lista_assinaturas'),
-    path('comprar/<int:produto_id>/', views.comprar_produto, name='comprar_produto'),
-    path('assinar/<int:assinatura_id>/', views.assinar_plano, name='assinar_plano'),
-    path('pedidos/', views.meus_pedidos, name='meus_pedidos'),
-        # Rotas para Assinaturas
-    path('assinatura/', views.assinar_plano, name='assinar_plano'),
-    path('assinatura/alterar/', views.alterar_assinatura, name='alterar_assinatura'),
-    path('assinatura/cancelar/', views.cancelar_assinatura, name='cancelar_assinatura'),
-    
-    # Rotas para Loja
-    path('loja/', views.listar_produtos, name='listar_produtos'),
-    path('loja/adicionar/<int:produto_id>/', views.adicionar_ao_carrinho, name='adicionar_ao_carrinho'),
-    path('loja/remover/<int:produto_id>/', views.remover_do_carrinho, name='remover_do_carrinho'),
-    path('loja/carrinho/', views.ver_carrinho, name='ver_carrinho'),
-]
+
+    path('carrinho/', views.carrinho, name='carrinho'),
+    path('adicionar-carrinho/<int:id_produto>/', views.adicionar_carrinho_produto, name='adicionar_carrinho_produto'),
+    path('adicionar-carrinho/plano/<int:id_plano>/', views.adicionar_carrinho_plano, name='adicionar_carrinho_plano'),
+
+
+
+    path('minha_pagina/', views.minha_pagina, name='minha_pagina'),
+    path('alterar_informacoes/', views.alterar_informacoes, name='alterar_informacoes'),  # Adicione essa linha
+    path("escolher-plano/<str:tipo>/", escolher_plano, name="escolher_plano"),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,11 @@
+<h2>Alterar Informações</h2>
+<form method="post">
+    {% csrf_token %}
+    <label>Nome:</label>
+    <input type="text" name="nome">
+    
+    <label>Email:</label>
+    <input type="email" name="email">
+    
+    <button type="submit">Salvar</button>
+</form>

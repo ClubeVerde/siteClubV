@@ -1,0 +1,193 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d4f0d7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.topo {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.topo .Retornar {
+    background: none;
+    border: 1px solid #224F34; 
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px 35px;
+    cursor: pointer;
+    color: #224F34;
+    margin-right: 5px;
+    margin: 10px;
+}
+
+.Retornar a{
+    text-decoration: none;
+}
+
+.topo .logo {
+    height: 100px;
+    margin-left: 40%;
+}
+.container {
+    display: flex;
+    width: 80%;
+    background-color: white;
+    margin-top: 80px;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+}
+.content {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+.sidebar {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sidebar button {
+    background: none;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+}
+.sidebar .active {
+    background-color: #c8f7c5;
+    border-radius: 5px;
+}
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.profile-pic {
+    position: relative;
+}
+.profile-pic img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #8fd19e;
+
+}
+
+.profile-form {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+label {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #083A50;
+}
+input {
+    padding: 8px;
+    border: 1px solid #50849A;
+    border-radius: 5px;
+}
+.save-button {
+    margin-top: 60px;
+    padding: 15px 30px;
+    background-color: #8fd19e;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    align-self: center;
+}
+.save-button:hover {
+    background-color: #7ac78c;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+h2{
+    color: #083A50;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+select{
+    padding: 8px;
+    border: 1px solid #50849A;
+    border-radius: 5px;
+}
+.PlanoImg{
+    width: 300px;
+    display: grid;
+    align-items: center;
+    margin-left: 25%;
+}
+
+h3{
+    color: #083A50;
+    margin-left: 15%;
+}
+h5{
+    display: grid;
+    justify-content: center;
+}
+
+.preco{
+    margin-left: 35%;
+}
+
+.form-section1{
+    gap: 10px;
+    flex: 1;
+}
+
+.form-section1 button{
+    margin: 25px;
+    margin-left: 25px;
+    padding: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    text-align: justify;
+    border-radius: 5px;
+    border-style: none;
+}
+
+.pausar{
+    background-color: #FFE853;
+}
+
+.cancelar{
+    background-color: #D32F2F;
+}
+
+.senha{
+    text-decoration:underline ;
+}
