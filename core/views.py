@@ -1,16 +1,18 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from .forms import CadastroForm
 from .models import Produto, Assinatura, Pedido, Carrinho, Plano
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import get_user_model
+from django.contrib.auth import logout
 from core.models import Usuario
 
 
+
 def home(request):
-    produtos = Produto.objects.all() 
+    produtos = Produto.objects.all()[:4]
+    messages.success(request, "Você saiu com sucesso.")
     return render(request, 'home.html', {'produtos': produtos})
+
 
 def cadastro(request):
     if request.method == "POST":
@@ -29,17 +31,17 @@ def cadastro(request):
         estado = request.POST.get("estado")
         referencia = request.POST.get("referencia")
 
-        # Verificar se o email já está em uso
+
         if Usuario.objects.filter(email=email).exists():
             messages.error(request, "Este email já está cadastrado.")
             return render(request, "cadastro.html")
 
-        # Validar se as senhas são iguais
+
         if senha1 != senha2:
             messages.error(request, "As senhas não coincidem.")
             return render(request, "cadastro.html")
 
-        # Criar usuário
+
         try:
             usuario = Usuario.objects.create_user(
                 username=email, 
@@ -58,10 +60,10 @@ def cadastro(request):
                 referencia=referencia,
             )
 
-            # Realizar login automático
+
             login(request, usuario)
             messages.success(request, "Cadastro realizado com sucesso! Faça login.")
-            return redirect("minha_pagina")  # Redireciona para a página do cliente
+            return redirect("minha_pagina")  
 
         except ValidationError as e:
             messages.error(request, f"Erro ao criar usuário: {e}")
@@ -69,8 +71,9 @@ def cadastro(request):
 
     return render(request, "cadastro.html")
 
+
 def minha_pagina(request):
-    # Obtém os pedidos e assinaturas do usuário logado
+    
     pedidos = Pedido.objects.filter(usuario=request.user)
     assinaturas = Assinatura.objects.filter(usuario=request.user)
     
@@ -79,8 +82,10 @@ def minha_pagina(request):
         'assinaturas': assinaturas,
     })
 
+
 def alterar_informacoes(request):
     return render(request, 'alterar_informacoes.html')
+
 
 def user_login(request):
     if request.method == "POST":
@@ -91,41 +96,52 @@ def user_login(request):
         if user is not None:
             login(request, user)
             messages.success(request, "Página de login carregada com sucesso!")
-            return redirect("home")  # Redireciona para a página inicial
+            return redirect("home")  
         else:
-            messages.error(request, "Email ou senha incorretos. Tente novamente.")  # ✅ Adiciona mensagem de erro
+            messages.error(request, "Email ou senha incorretos. Tente novamente.")
 
     return render(request, "login.html", {'messages': messages.get_messages(request)})
+
+def custom_logout(request):
+    logout(request)
+    messages.success(request, "Você saiu com sucesso.")
+    return redirect('home')
 
 def lista_produtos(request):
     produtos = Produto.objects.all()
     return render(request, 'produtos.html', {'produtos': produtos})
 
+
 def lista_assinaturas(request):
     assinaturas = Assinatura.objects.all()
     return render(request, 'assinaturas.html', {'assinaturas': assinaturas})
 
+
 def sobre_nos(request):
     return render(request, 'sobre_nos.html')
 
+
 def loja(request):
-    produtos = Produto.objects.all()  # Certifique-se de que Produto é o seu modelo de produtos
+    produtos = Produto.objects.all()  
     return render(request, 'loja.html', {'produtos': produtos})
+
 
 def contato(request):
     return render(request, 'contato.html')
 
+
+
 def carrinho(request):
-    # Recupera o dicionário do carrinho da sessão
+    
     cart = request.session.get('carrinho', {})
     
-    # Inicializa listas para produtos e planos
+    
     produtos_carrinho = []
     planos_carrinho = []
     
-    # Itera pelos itens do carrinho
+    
     for item_id, quantidade in cart.items():
-        # Tenta obter como Produto
+    
         try:
             produto = Produto.objects.get(id=int(item_id))
             produtos_carrinho.append({
@@ -133,7 +149,7 @@ def carrinho(request):
                 'quantidade': quantidade,
             })
         except Produto.DoesNotExist:
-            # Se não encontrar como Produto, tenta como Plano
+    
             try:
                 plano = Plano.objects.get(id=int(item_id))
                 planos_carrinho.append({
@@ -141,7 +157,7 @@ def carrinho(request):
                     'quantidade': quantidade,
                 })
             except Plano.DoesNotExist:
-                # Se não encontrar de nenhum dos dois, ignora o item
+    
                 continue
 
     context = {
@@ -178,12 +194,12 @@ def visualizar_carrinho(request):
     """
     Exibe os itens do carrinho e o total.
     """
-    # Obtém o carrinho da sessão
+
     carrinho = request.session.get('carrinho', {})
     produtos_carrinho = []
     total = 0
 
-    # Para cada item (id_produto e quantidade) no carrinho, busca o produto no BD e calcula o subtotal
+
     for id_produto, quantidade in carrinho.items():
         produto = Produto.objects.get(id=id_produto)
         subtotal = produto.preco * quantidade
@@ -201,30 +217,30 @@ def visualizar_carrinho(request):
     return render(request, 'carrinho.html', context)
 
 def criar_pedido(request, assinatura_id):
-    # Recuperando a assinatura do usuário
+
     assinatura = get_object_or_404(Assinatura, id=assinatura_id)
     
     if assinatura.status == 'ativa':
-        # Criar o pedido relacionado à assinatura
+        
         pedido = Pedido.objects.create(
             usuario=request.user,
             assinatura=assinatura,
             status='pendente'
         )
         
-        # Se necessário, altere o status da assinatura ao criar o pedido
-        # Exemplo: Suspende a assinatura enquanto o pedido está em andamento
+
         assinatura.status = 'suspensa'
         assinatura.save()
-
-        # Redireciona o usuário para a página do carrinho ou página de confirmação
+        
         return redirect('carrinho')
     else:
-        # Exibe uma mensagem de erro caso a assinatura não esteja ativa
+     
         messages.error(request, 'Sua assinatura não está ativa. Não é possível fazer o pedido.')
         return redirect('minha_pagina')
+    
+
 def planos(request):
-    planos = Plano.objects.all()  # Recuperando todos os planos
+    planos = Plano.objects.all()
     return render(request, 'planos.html', {'planos': planos})
 
 @login_required
@@ -232,26 +248,62 @@ def escolher_plano(request, plano_id):
     try:
         plano = Plano.objects.get(id=plano_id)
     except Plano.DoesNotExist:
-        # Se o plano não existir, redireciona para a página de planos
+
         return redirect('planos')
 
     if request.method == 'POST':
-        # Aqui, associamos o plano ao usuário, criando ou atualizando a assinatura
+      
         assinatura, created = Assinatura.objects.update_or_create(
             usuario=request.user,
             defaults={'plano': plano}
         )
-        # Redireciona para a página do usuário ou para onde você desejar após a escolha
+        
         return redirect('minha_pagina')
 
     return render(request, 'escolher_plano.html', {'plano': plano})
 
 @login_required
 def adicionar_carrinho(request, plano_id):
-    plano = Produto.objects.get(id=plano_id)  # Ou qualquer modelo relacionado a planos
-    # Lógica para adicionar ao carrinho
+    plano = Produto.objects.get(id=plano_id)
+   
     if request.method == 'POST':
         carrinho = Carrinho(usuario=request.user, produto=plano)
         carrinho.save()
-        return redirect('carrinho')  # Redireciona para o carrinho ou outra página
+        return redirect('carrinho') 
     return render(request, 'carrinho.html', {'plano': plano})
+
+@login_required
+def finalizar_compra(request):
+    cart = request.session.get('carrinho', {})
+    if not cart:
+        messages.error(request, "Seu carrinho está vazio.")
+        return redirect('carrinho')
+    
+
+    for item_id, quantidade in cart.items():
+        
+        try:
+            produto = Produto.objects.get(id=int(item_id))
+          
+            Pedido.objects.create(
+                usuario=request.user,
+                produto=produto,
+                status='pendente',  
+                quantidade=quantidade 
+            )
+        except Produto.DoesNotExist:
+            
+            try:
+                plano = Plano.objects.get(id=int(item_id))
+                Pedido.objects.create(
+                    usuario=request.user,
+                    assinatura=plano,  
+                    status='pendente',
+                    quantidade=quantidade
+                )
+            except Plano.DoesNotExist:
+                continue
+
+    request.session['carrinho'] = {}
+    messages.success(request, "Compra finalizada com sucesso!")
+    return redirect('minha_pagina')

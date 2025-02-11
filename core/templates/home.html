@@ -13,23 +13,31 @@
             <img src="{% static 'Style/imgs/Logo.png' %}" alt="" class="logo">
             <div class="informacoes">
               <a href="{% url 'sobre_nos' %}" class="link-topo">SOBRE NÓS</a>
-              <a href="{% url 'listar_produtos' %}" class="link-topo">LOJA</a>
+              <a href="{% url 'loja' %}" class="link-topo">LOJA</a>
               <a href="{% url 'planos' %}" class="link-topo">PLANOS</a>
               <a href="{% url 'contato' %}" class="link-topo">CONTATO</a>
               <a href="{% url 'carrinho' %}" class="link-topo">
                 <img src="{% static 'Style/imgs/carrinho.png' %}" alt="Carrinho" class="carrinho-icon">
             </a>
             </div>
-            {% if user.is_authenticated %}
-              <a href="{% url 'minha_pagina' %}">Minha Página</a>
-            {% else %}
-              <a href="{% url 'login' %}">Entrar</a>
-            {% endif %}
+            <div>
+              {% if user.is_authenticated %}
+                  <a href="{% url 'minha_pagina' %}" class="botao-topo-link">Minha Página</a>
+                  <form action="{% url 'logout' %}" method="POST" style="display:inline;">
+                      {% csrf_token %}
+                      <button type="submit" class="botao-sair" onclick="confirmarSair()">Sair</button>
+                  </form>
+              {% else %}
+                  <a href="{% url 'login' %}" class="botao-topo-link">Entrar</a>
+              {% endif %}
+          </div>
         </header>
         <main class="meio">
             <img src="{% static 'Style/imgs/Logo.png' %}" alt="">
             <p>Conheça nossos planos de assinatura mensal</p>
-            <a href="#meio-planos"><button class="button-top2">VEJA OS PLANOS</button></a>
+            <div class="container-botao">
+              <a href="{% url 'planos' %}"><button class="botao-centro">VEJA OS PLANOS</button></a>
+            </div>
         </main>
     </section>
 
@@ -41,13 +49,22 @@
               <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
                 <h3>{{ produto.nome }}</h3>
                 <p>{{ produto.tamanho }} | R$ {{ produto.preco }}</p>
-                <a href="{% url 'adicionar_ao_carrinho' produto.id %}"><button>Adicionar ao Carrinho</button></a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'adicionar_carrinho_produto' produto.id %}" class="botao-adicionar">
+                  Adicionar ao Carrinho
+                </a>
+              
+                {% else %}
+                  <p>Faça <a href="{% url 'login' %}">login</a> para adicionar ao carrinho.</p>
+                {% endif %}
             </div>
             {% empty %}
             <p>Nenhum produto disponível no momento.</p>
             {% endfor %}
         </main>
-        <a href="{% url 'listar_produtos' %}"><button class="button-planos">VEJA MAIS →</button></a>
+        <div class="container-botao">
+          <a href="{% url 'loja' %}"><button class="botao-centro">VEJA MAIS →</button></a>
+        </div>
     </section>
 
     <section class="container-diferenciais">
@@ -109,7 +126,7 @@
           <h1>NAVEGAÇÃO</h1>
             <div class="link">
                 <a href="{% url 'sobre_nos' %}">SOBRE NÓS</a>
-                <a href="{% url 'listar_produtos' %}">LOJA</a>
+                <a href="{% url 'loja' %}" class="link-topo">LOJA</a>
                 <a href="{% url 'planos' %}">PLANOS</a>
                 <a href="{% url 'contato' %}">CONTATO</a>
             </div>

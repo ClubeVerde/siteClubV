@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:wght@400;700&display=swap');
 
 body {
+    min-width: 1200px;
     font-family: "Roboto", serif;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
-    overflow-x: hidden;
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 .container-topo {
@@ -15,6 +17,7 @@ body {
 .topo {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
 
 .topo .logo {
@@ -22,14 +25,23 @@ body {
     margin-left: 15px;
 }
 
-.link-topo {
-    text-decoration: none;
-    color: #224F34;
-    padding: 15px;
+.informacoes {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
 }
 
-.informacoes {
-    margin-top: 40px;
+.link-topo {
+    color:#006400;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.link-topo:hover {
+    color: #006400; 
 }
 
 .button-topo {
@@ -66,6 +78,10 @@ body {
     color: #C2EFD4;
     border-width: 0;
     border-radius: 5px;
+}
+
+.button-top2:hover {
+    background-color: #24ba60;
 }
 
 .title-planos {
@@ -480,4 +496,119 @@ body {
 .carrinho-icon {
     width: 30px;
     height: 30px;
+}
+
+#message-box {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+.message.error {
+    background: #f44336; 
+}
+
+.message.success {
+    background: #4CAF50;
+}
+
+.botao-topo, .botao-sair {
+    display: inline-block; /* Para evitar que o botão ocupe toda a largura da tela */
+    color: white;
+    background-color: #006400;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none; /* Remover qualquer sublinhado do link */
+    text-align: center; /* Centralizar o texto dentro do botão */
+}
+
+.botao-topo:hover, .botao-sair:hover {
+    background-color: #004d00;
+}
+
+/* Estilo do botão "Sair" para fundo branco e texto verde */
+.botao-sair {
+    background-color: white;
+    color: #006400;
+    border: 1px solid #006400;
+}
+
+.botao-sair:hover {
+    background-color: #006400;
+    color: white;
+}
+
+/* Remover qualquer margin ou padding extra nos links */
+.botao-topo-link {
+    display: inline-block;
+    color: white;
+    background-color: #006400;
+    padding: 10px 20px;
+    text-decoration: none; /* Remover sublinhado */
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center; /* Centralizar o texto dentro do link */
+}
+
+.botao-topo-link:hover {
+    background-color: #004d00;
+}
+
+/* Remover padding/margem extras nos links dentro dos botões */
+.botao-topo a {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+.botao-adicionar {
+    background-color: #006400; 
+    color: white; 
+    padding: 10px 10px; 
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer; 
+    text-align: center;
+    transition: background 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.botao-adicionar:hover {
+    background-color: #004d00; 
+}
+
+.botao-centro {
+    background-color: #63c763; 
+    color: white; 
+    padding: 10px 10px; 
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer; 
+    text-align: center;
+    transition: background 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.botao-centro:hover {
+    background-color: #004d00; 
+}
+
+.container-botao {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: 100%; /* Ocupa toda a largura */
+    text-align: center; /* Garante que o botão fique no centro */
 }
