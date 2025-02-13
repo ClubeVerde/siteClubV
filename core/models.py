@@ -49,27 +49,6 @@ class Assinatura(models.Model):
     data_expiracao = models.DateField()
     status = models.CharField(max_length=20, choices=[('ativa', 'Ativa'), ('suspensa', 'Suspensa'), ('cancelada', 'Cancelada')])
 
-class Pedido(models.Model):
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    produto = models.ForeignKey('Produto', null=True, blank=True, on_delete=models.SET_NULL)
-    assinatura = models.ForeignKey('Assinatura', null=True, blank=True, on_delete=models.SET_NULL)
-    data_pedido = models.DateTimeField(auto_now_add=True)
-    status = models.CharField(max_length=20, choices=[
-        ('pendente', 'Pendente'),
-        ('pago', 'Pago'),
-        ('cancelado', 'Cancelado')
-    ], default='pendente')
-
-    def __str__(self):
-        return f'Pedido {self.id} - {self.usuario.username}'
-
-class Avaliacao(models.Model):
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
-    comentario = models.TextField()
-    nota = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)])
-    data_avaliacao = models.DateTimeField(auto_now_add=True)
-
 class Plano(models.Model):
     nome = models.CharField(max_length=100)
     preco = models.DecimalField(max_digits=6, decimal_places=2)
@@ -85,3 +64,25 @@ class Carrinho(models.Model):
 
     def __str__(self):
         return f'Carrinho de {self.usuario.username}'
+
+class Pedido(models.Model):
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    produto = models.ForeignKey(Produto, null=True, blank=True, on_delete=models.SET_NULL)
+    assinatura = models.ForeignKey(Plano, null=True, blank=True, on_delete=models.SET_NULL)
+    quantidade = models.PositiveIntegerField(default=1)
+    data_pedido = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=255, choices=[
+        ('pendente', 'Pendente'),
+        ('pago', 'Pago'),
+        ('cancelado', 'Cancelado')
+    ], default='pendente')
+
+    def __str__(self):
+        return f'Pedido {self.id} - {self.usuario.username}'
+    
+class Avaliacao(models.Model):
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+    comentario = models.TextField()
+    nota = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)])
+    data_avaliacao = models.DateTimeField(auto_now_add=True)

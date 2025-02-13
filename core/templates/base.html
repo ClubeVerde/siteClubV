@@ -17,6 +17,7 @@
             <p class="message {{ message.tags }}">{{ message }}</p>
         {% endfor %}
     </div>
+
     <script>
         setTimeout(function() {
             var messageBox = document.getElementById("message-box");
@@ -49,9 +50,7 @@
                         <button type="submit" class="botao-sair" onclick="confirmarSair()">Sair</button>
                     </form>
                 {% else %}
-                    <a href="{% url 'login' %}" class="botao-topo">
-                        <button type="submit">Entrar</button>
-                    </a>
+                <a href="{% url 'login' %}" class="botao-topo-link">Entrar</a>
                 {% endif %}
             </div>
         </header>

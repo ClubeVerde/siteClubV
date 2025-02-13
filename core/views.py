@@ -274,36 +274,41 @@ def adicionar_carrinho(request, plano_id):
 
 @login_required
 def finalizar_compra(request):
-    cart = request.session.get('carrinho', {})
-    if not cart:
-        messages.error(request, "Seu carrinho está vazio.")
-        return redirect('carrinho')
-    
+    carrinho = request.session.get('carrinho', {})
 
-    for item_id, quantidade in cart.items():
-        
+    if not carrinho:
+        messages.error(request, "Seu carrinho está vazio!")
+        return redirect('carrinho')
+
+    for item_id, quantidade in carrinho.items():
         try:
             produto = Produto.objects.get(id=int(item_id))
-          
             Pedido.objects.create(
                 usuario=request.user,
                 produto=produto,
-                status='pendente',  
-                quantidade=quantidade 
+                assinatura=None,
+                quantidade=quantidade,
+                status=f"{produto.nome} - R$ {produto.preco:.2f}" 
             )
         except Produto.DoesNotExist:
-            
             try:
                 plano = Plano.objects.get(id=int(item_id))
                 Pedido.objects.create(
                     usuario=request.user,
-                    assinatura=plano,  
-                    status='pendente',
-                    quantidade=quantidade
+                    produto=None,  
+                    assinatura=plano,
+                    quantidade=1,
+                    status=f"{plano.nome} - R$ {plano.preco:.2f}"  
                 )
             except Plano.DoesNotExist:
                 continue
 
     request.session['carrinho'] = {}
+
     messages.success(request, "Compra finalizada com sucesso!")
-    return redirect('minha_pagina')
+    return redirect('minha_pagina')    
+
+def minha_view(request):
+    storage = get_messages(request) 
+
+    return render(request, 'minha_pagina.html', {'messages': storage})
