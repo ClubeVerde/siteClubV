@@ -1,24 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Contato | Clube Verde{% endblock %}
 
 {% block content %}
-    <div style="background-color: #f9f9f9; padding: 40px 20px; border-radius: 8px;">
-        <h1>Entre em Contato</h1>
-        <h4>Você tem dúvidas ou quer fazer uma sugestão? Entre em contato conosco pelos seguintes meios:</h4>
-        <ul>
-            <li><strong>Email:</strong> clubeverdeif@gmail.com</li>
-            <li><strong>WhatsApp:</strong> +55 73 98832-4883</li>
-            <li><strong>Instagram:</strong> <a href="https://instagram.com/clubeverde">clubeverde</a></li>
-            <li><strong>Facebook:</strong> <a href="https://facebook.com/clubeverde">clubeverde</a></li>
-        </ul>
-        <form action="" method="POST">
+<section class="contato-section">
+    <h1>Entre em Contato</h1>
+    <h4>Você tem dúvidas ou quer fazer uma sugestão? Entre em contato conosco pelos seguintes meios:</h4>
+    <ul class="contato-meios">
+        <li><strong>Email:</strong> clubeverdeif@gmail.com</li>
+        <li><strong>WhatsApp:</strong> +55 73 98832-4883</li>
+        <li><strong>Instagram:</strong> <a href="https://instagram.com/clubeverde" target="_blank">clubeverde</a></li>
+        <li><strong>Facebook:</strong> <a href="https://facebook.com/clubeverde" target="_blank">clubeverde</a></li>
+    </ul>
+    <div class="contato-form-wrapper">
+        <form action="" method="POST" class="contato-form">
+            {% csrf_token %}
             <label for="message">Sua Mensagem:</label>
-            <!-- Campo de mensagem estilizado -->
-            <textarea id="message" name="message" rows="14" placeholder="Sua mensagem..." style="border-radius: 10px; border: 2px solid #224F34; padding: 10px; width: 100%;"></textarea>
-            <br>
-            <!-- Botão de envio estilizado -->
-            <button type="submit" style="border-radius: 10px; background-color: #224F34; color: white; padding: 15px 30px; border: none; cursor: pointer; margin-top: 10px;">Enviar Mensagem</button>
+            <textarea id="message" name="message" rows="14" placeholder="Sua mensagem..."></textarea>
+            <button type="submit">Enviar Mensagem</button>
         </form>
     </div>
+</section>
 {% endblock %}

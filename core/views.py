@@ -5,44 +5,42 @@ from .models import Produto, Assinatura, Pedido, Carrinho, Plano
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from core.models import Usuario
+from django.contrib.messages import get_messages
+from django.core.exceptions import ValidationError
+from django.db import IntegrityError
 
 
 
 def home(request):
     produtos = Produto.objects.all()[:4]
-    messages.success(request, "Você saiu com sucesso.")
+
     return render(request, 'home.html', {'produtos': produtos})
 
 
 def cadastro(request):
     if request.method == "POST":
-        nome = request.POST.get("nome")
-        sobrenome = request.POST.get("sobrenome")
-        telefone = request.POST.get("telefone")
-        cpf = request.POST.get("cpf")
-        email = request.POST.get("email")
-        senha1 = request.POST.get("password1")
-        senha2 = request.POST.get("password2")
-        rua = request.POST.get("rua")
-        numero = request.POST.get("numero")
-        cep = request.POST.get("cep")
-        bairro = request.POST.get("bairro")
-        cidade = request.POST.get("cidade")
-        estado = request.POST.get("estado")
-        referencia = request.POST.get("referencia")
-
-
-        if Usuario.objects.filter(email=email).exists():
-            messages.error(request, "Este email já está cadastrado.")
-            return render(request, "cadastro.html")
-
-
-        if senha1 != senha2:
-            messages.error(request, "As senhas não coincidem.")
-            return render(request, "cadastro.html")
-
-
         try:
+            nome = request.POST.get("nome")
+            sobrenome = request.POST.get("sobrenome")
+            telefone = request.POST.get("telefone")
+            cpf = request.POST.get("cpf")
+            email = request.POST.get("email")
+            senha1 = request.POST.get("password1")
+            senha2 = request.POST.get("password2")
+            rua = request.POST.get("rua")
+            numero = request.POST.get("numero")
+            cep = request.POST.get("cep")
+            bairro = request.POST.get("bairro")
+            cidade = request.POST.get("cidade")
+            estado = request.POST.get("estado")
+            referencia = request.POST.get("referencia")
+
+           
+            if senha1 != senha2:
+                messages.error(request, "As senhas não coincidem.")
+                return render(request, "cadastro.html")
+
+           
             usuario = Usuario.objects.create_user(
                 username=email, 
                 first_name=nome,
@@ -61,13 +59,15 @@ def cadastro(request):
             )
 
 
-            login(request, usuario)
-            messages.success(request, "Cadastro realizado com sucesso! Faça login.")
-            return redirect("minha_pagina")  
 
-        except ValidationError as e:
+            messages.success(request, "Cadastro realizado com sucesso! Faça login.")
+            return redirect("login")
+
+        except IntegrityError:
+            messages.error(request, "Este email ou CPF já estão cadastrado.")
+        except ValidationError as e: 
             messages.error(request, f"Erro ao criar usuário: {e}")
-            return render(request, "cadastro.html")
+
 
     return render(request, "cadastro.html")
 
@@ -190,6 +190,7 @@ def adicionar_carrinho_plano(request, id_plano):
     messages.success(request, f"Plano '{plano.nome}' foi adicionado ao carrinho!")
     return redirect('carrinho')
 
+
 def visualizar_carrinho(request):
     """
     Exibe os itens do carrinho e o total.
@@ -215,29 +216,7 @@ def visualizar_carrinho(request):
         'total': total,
     }
     return render(request, 'carrinho.html', context)
-
-def criar_pedido(request, assinatura_id):
-
-    assinatura = get_object_or_404(Assinatura, id=assinatura_id)
-    
-    if assinatura.status == 'ativa':
-        
-        pedido = Pedido.objects.create(
-            usuario=request.user,
-            assinatura=assinatura,
-            status='pendente'
-        )
-        
-
-        assinatura.status = 'suspensa'
-        assinatura.save()
-        
-        return redirect('carrinho')
-    else:
-     
-        messages.error(request, 'Sua assinatura não está ativa. Não é possível fazer o pedido.')
-        return redirect('minha_pagina')
-    
+ 
 
 def planos(request):
     planos = Plano.objects.all()

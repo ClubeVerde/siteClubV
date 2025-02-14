@@ -1,82 +1,29 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'Style/PagPrincipal.css' %}">
-    <title>Loja | Clube Verde</title>
-</head>
-<body>
-    {% if messages %}
-    <div id="message-box">
-        {% for message in messages %}
-            <p class="message {{ message.tags }}">{{ message }}</p>
-        {% endfor %}
-    </div>
 
-    <script>
-        setTimeout(function() {
-            var messageBox = document.getElementById("message-box");
-            if (messageBox) {
-                messageBox.style.display = "none";
-            }
-        }, 3000);
-    </script>
-{% endif %}
-    <section class="container-topo">
-        <header class="topo">
-            <a href="/">
-                <img src="{% static 'Style/imgs/Logo.png' %}" alt="" class="logo">
-            </a>
-            <div class="informacoes">
-                <a href="{% url 'sobre_nos' %}" class="link-topo">SOBRE NÓS</a>
-                <a href="{% url 'loja' %}" class="link-topo">LOJA</a>
-                <a href="{% url 'planos' %}" class="link-topo">PLANOS</a>
-                <a href="{% url 'contato' %}" class="link-topo">CONTATO</a>
-                <a href="{% url 'carrinho' %}" class="link-topo">
-                    <img src="{% static 'Style/imgs/carrinho.png' %}" alt="Carrinho" class="carrinho-icon">
-                </a>
-            </div>
-            <div>
-                {% if user.is_authenticated %}
-                    <a href="{% url 'minha_pagina' %}" class="botao-topo-link">Minha Página</a>
-                    <form action="{% url 'logout' %}" method="POST" style="display:inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="botao-sair" onclick="confirmarSair()">Sair</button>
-                    </form>
-                {% else %}
-                <a href="{% url 'login' %}" class="botao-topo-link">Entrar</a>
-                {% endif %}
-            </div>
-        </header>
-    </section>
+{% block title %}Loja | Clube Verde{% endblock %}
 
-    <section class="Container-lojinha">
+{% block content %}
+    <section class="container-loja">
         <h1 class="titulo">LOJINHA</h1>
-        <main class="container_Plantas">
+        <main class="container_plantas">
             {% for produto in produtos %}
-            <div class="item">
-                <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
-                <h3>{{ produto.nome }}</h3>
-                <p>{{ produto.tamanho }} | R$ {{ produto.preco }}</p>
-                <p>{{ produto.descricao }}</p>
-                {% if user.is_authenticated %}
-                <a href="{% url 'adicionar_carrinho_produto' produto.id %}" class="botao-adicionar">
-                    Adicionar ao Carrinho
-                </a>
-                {% else %}
-                    <p>Faça <a href="{% url 'login' %}">login</a> para adicionar ao carrinho.</p>
-                {% endif %}
-            </div>
+                <div class="item">
+                    <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
+                    <h3>{{ produto.nome }}</h3>
+                    <p>{{ produto.tamanho }} | R$ {{ produto.preco }}</p>
+                    <p>{{ produto.descricao }}</p>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'adicionar_carrinho_produto' produto.id %}" class="botao-adicionar">
+                            Adicionar ao Carrinho
+                        </a>
+                    {% else %}
+                        <p>Faça <a href="{% url 'login' %}">login</a> para adicionar ao carrinho.</p>
+                    {% endif %}
+                </div>
             {% empty %}
-            <p>Nenhum produto disponível no momento.</p>
+                <p>Nenhum produto disponível no momento.</p>
             {% endfor %}
         </main>
     </section>
-
-    <footer class="rodape">
-        <p>© 2025 Clube Verde Ltda. Todos os direitos reservados.</p>
-    </footer>
-</body>
-</html>
+{% endblock %}

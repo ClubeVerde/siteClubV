@@ -58,7 +58,7 @@ class Plano(models.Model):
         return self.nome
 
 class Carrinho(models.Model):
-    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Altere aqui para usar AUTH_USER_MODEL
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     produto = models.ForeignKey('Produto', on_delete=models.CASCADE)
     quantidade = models.IntegerField(default=1)
 

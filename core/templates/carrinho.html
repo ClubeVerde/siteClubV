@@ -3,34 +3,50 @@
 {% block title %}Carrinho | Clube Verde{% endblock %}
 
 {% block content %}
-  <h1>Seu Carrinho</h1>
-  
-  {% if produtos_carrinho or planos_carrinho %}
-    {% if produtos_carrinho %}
-      <h2>Produtos</h2>
-      <ul>
-        {% for item in produtos_carrinho %}
-          <li>
-            {{ item.item.nome }} - Quantidade: {{ item.quantidade }} - R$ {{ item.item.preco|floatformat:2 }}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-    {% if planos_carrinho %}
-      <h2>Planos</h2>
-      <ul>
-        {% for item in planos_carrinho %}
-          <li>
-            {{ item.item.nome }} - Quantidade: {{ item.quantidade }} - R$ {{ item.item.preco|floatformat:2 }}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-    
-    <a href="{% url 'finalizar_compra' %}">
-      <button>Finalizar Compra</button>
-    </a>
-  {% else %}
-    <p>Seu carrinho está vazio.</p>
-  {% endif %}
+    <div class="carrinho-container">
+        <h1>Seu Carrinho</h1>
+
+        {% if produtos_carrinho or planos_carrinho %}
+            <div class="carrinho-itens">
+                {% if produtos_carrinho %}
+                    <h2>Produtos</h2>
+                    <div class="carrinho-grid">
+                        {% for item in produtos_carrinho %}
+                            <div class="carrinho-card">
+                                <img src="{{ item.item.imagem.url }}" alt="{{ item.item.nome }}">
+                                <div class="carrinho-info">
+                                    <h3>{{ item.item.nome }}</h3>
+                                    <p>Quantidade: {{ item.quantidade }}</p>
+                                    <p>Preço: <strong>R$ {{ item.item.preco|floatformat:2 }}</strong></p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if planos_carrinho %}
+                    <h2>Planos</h2>
+                    <div class="carrinho-grid">
+                        {% for item in planos_carrinho %}
+                            <div class="carrinho-card">
+                                <div class="carrinho-info">
+                                    <h3>{{ item.item.nome }}</h3>
+                                    <p>Quantidade: {{ item.quantidade }}</p>
+                                    <p>Preço: <strong>R$ {{ item.item.preco|floatformat:2 }}</strong></p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="carrinho-finalizar">
+                <a href="{% url 'finalizar_compra' %}">
+                    <button class="botao-finalizar">Finalizar Compra</button>
+                </a>
+            </div>
+        {% else %}
+            <p class="carrinho-vazio">Seu carrinho está vazio.</p>
+        {% endif %}
+    </div>
 {% endblock %}

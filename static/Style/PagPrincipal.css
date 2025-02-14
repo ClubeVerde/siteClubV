@@ -201,19 +201,7 @@ body {
     color: #224F34;
 }
 
-.imgOferta {
-    position: absolute;
-    font-size: 24px;
-    color: #224F34;
-    cursor: pointer;
-    border: none;
-    position: absolute;
-    transform: translateY(-50%);
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-}
+
 
 .text {
     text-align: center;
@@ -345,9 +333,9 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     background-color: #224F34;
-    gap: 30px; /* Diminui o espaçamento entre as colunas */
-    padding-top: 20px; /* Diminui o espaçamento superior */
-    padding-bottom: 20px; /* Diminui o espaçamento inferior */
+    gap: 30px;
+    padding-top: 20px; 
+    padding-bottom: 20px; 
 }
 
 .rede-social {
@@ -355,12 +343,12 @@ body {
 }
 
 .rede-social h1 {
-    font-size: 18px; /* Diminui o tamanho do título */
+    font-size: 18px; 
     color: #FFFFFF;
 }
 
 .rede-social img {
-    width: 35px; /* Diminui o tamanho dos ícones */
+    width: 35px;
 }
 
 .rede-social button {
@@ -374,13 +362,13 @@ body {
 }
 
 .navegar h1 {
-    font-size: 18px; /* Diminui o tamanho do título */
+    font-size: 18px; 
     color: #FFFFFF;
 }
 
 .link a {
     color: #C2EFD4;
-    padding: 3px; /* Diminui o padding */
+    padding: 3px; 
     text-decoration: none;
 }
 
@@ -390,7 +378,7 @@ body {
 }
 
 .contato h1 {
-    font-size: 18px; /* Diminui o tamanho do título */
+    font-size: 18px; 
     color: #FFFFFF;
 }
 
@@ -406,7 +394,7 @@ body {
 .email h1 {
     color: #FFFFFF;
     font-size: 18px;
-    margin-bottom: 10px; /* Adiciona espaçamento abaixo do título */
+    margin-bottom: 10px; 
 }
 
 .email input {
@@ -415,7 +403,7 @@ body {
     border-radius: 5px;
     border: 2px solid #A3F3BE;
     background-color: inherit;
-    margin-bottom: 10px; /* Adiciona espaçamento entre o input e o botão */
+    margin-bottom: 10px; 
     flex-grow: 1;
 }
 
@@ -443,55 +431,55 @@ body {
     width: 100%;
 }
 .button-loja {
-    background-color: #224F34; /* Cor verde escuro */
-    padding: 10px 20px; /* Menos padding */
-    color: #C2EFD4; /* Cor do texto em branco */
+    background-color: #224F34; 
+    padding: 10px 20px; 
+    color: #C2EFD4; 
     border: none;
     border-radius: 5px;
-    font-size: 14px; /* Diminuindo o tamanho da fonte */
+    font-size: 14px; 
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease;
-    display: inline-block; /* Para garantir que o link tenha o comportamento de um botão */
-    text-decoration: none; /* Remove o sublinhado do link */
+    display: inline-block; 
+    text-decoration: none;
 }
 
 .button-loja:hover {
-    background-color: #1A3B27; /* Cor mais escura no hover */
+    background-color: #1A3B27; 
 }
 .button-loja {
-    background-color: #224F34; /* Cor verde escuro */
-    padding: 10px 20px; /* Menos padding */
-    color: #C2EFD4; /* Cor do texto em branco */
+    background-color: #224F34; 
+    padding: 10px 20px; 
+    color: #C2EFD4; 
     border: none;
     border-radius: 5px;
-    font-size: 14px; /* Diminuindo o tamanho da fonte */
+    font-size: 14px; 
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease;
-    display: inline-block; /* Para garantir que o link tenha o comportamento de um botão */
-    text-decoration: none; /* Remove o sublinhado do link */
+    display: inline-block; 
+    text-decoration: none; 
 }
 
 .button-loja:hover {
-    background-color: #1A3B27; /* Cor mais escura no hover */
+    background-color: #1A3B27; 
 }
 .button-loja {
-    background-color: #224F34; /* Cor verde escuro */
-    padding: 10px 20px; /* Menos padding */
-    color: #C2EFD4; /* Cor do texto em branco */
+    background-color: #224F34; 
+    padding: 10px 20px;
+    color: #C2EFD4; 
     border: none;
     border-radius: 5px;
-    font-size: 14px; /* Diminuindo o tamanho da fonte */
+    font-size: 14px;
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease;
-    display: inline-block; /* Para garantir que o link tenha o comportamento de um botão */
-    text-decoration: none; /* Remove o sublinhado do link */
+    display: inline-block; 
+    text-decoration: none; 
 }
 
 .button-loja:hover {
-    background-color: #1A3B27; /* Cor mais escura no hover */
+    background-color: #1A3B27;
 }
 .carrinho-icon {
     width: 30px;
@@ -521,7 +509,7 @@ body {
 }
 
 .botao-topo, .botao-sair {
-    display: inline-block; /* Para evitar que o botão ocupe toda a largura da tela */
+    display: inline-block; 
     color: white;
     background-color: #006400;
     padding: 10px 20px;
@@ -529,15 +517,15 @@ body {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    text-decoration: none; /* Remover qualquer sublinhado do link */
-    text-align: center; /* Centralizar o texto dentro do botão */
+    text-decoration: none; 
+    text-align: center; 
 }
 
 .botao-topo:hover, .botao-sair:hover {
     background-color: #004d00;
 }
 
-/* Estilo do botão "Sair" para fundo branco e texto verde */
+
 .botao-sair {
     background-color: white;
     color: #006400;
@@ -549,23 +537,23 @@ body {
     color: white;
 }
 
-/* Remover qualquer margin ou padding extra nos links */
+
 .botao-topo-link {
     display: inline-block;
     color: white;
     background-color: #006400;
     padding: 10px 20px;
-    text-decoration: none; /* Remover sublinhado */
+    text-decoration: none; 
     border-radius: 5px;
     font-size: 16px;
-    text-align: center; /* Centralizar o texto dentro do link */
+    text-align: center; 
 }
 
 .botao-topo-link:hover {
     background-color: #004d00;
 }
 
-/* Remover padding/margem extras nos links dentro dos botões */
+
 .botao-topo a {
     margin: 0;
     padding: 0;
@@ -607,8 +595,332 @@ body {
 
 .container-botao {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    width: 100%; /* Ocupa toda a largura */
-    text-align: center; /* Garante que o botão fique no centro */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.criadores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.criador {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.criador h3 {
+    color: #224F34;
+    margin-bottom: 10px;
+}
+
+.criador p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+    padding-left: 10px;
+    text-align: justify;
+}
+
+.planos-section {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin: 20px;
+  }
+  
+  .planos-section h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #224F34;
+    font-size: 28px;
+  }
+  
+  .planos-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+    margin-bottom: 50px;
+  }
+  
+  .plano-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombreamento mais forte */
+    padding: 20px;
+    width: 100%;
+    max-width: 35s0px;
+    min-width: 300px;
+    text-align: center;
+  }
+  
+  .plano-card h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #224F34;
+  }
+  
+  .plano-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .plano-card p.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #224F34;
+    margin-bottom: 20px;
+  }
+  
+  .plano-card a {
+    text-decoration: none;
+  }
+  
+  .plano-card button {
+    background-color: #224F34;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .plano-card button:hover {
+    background-color: #1e5f3a;
+  }
+
+  .contato-section {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.contato-section h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #224F34;
+    font-size: 28px;
+}
+
+.contato-section h4 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+    font-size: 18px;
+}
+
+.contato-meios {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.contato-meios li {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.contato-meios li a {
+    color: #224F34;
+    text-decoration: none;
+}
+
+.contato-form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.contato-form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.contato-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #224F34;
+}
+
+.contato-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #224F34;
+    border-radius: 10px;
+    resize: vertical;
+    font-size: 14px;
+}
+
+.contato-form button {
+    margin-top: 10px;
+    background-color: #224F34;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contato-form button:hover {
+    background-color: #1e5f3a;
+}
+
+.container-loja {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.container_plantas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.item {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.item p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+    text-align: justify;
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+.item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.botao-adicionar {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #224F34;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.botao-adicionar:hover {
+    background-color: #1b3d28;
+}
+
+.carrinho-container {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    border-radius: 8px;
+    max-width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.carrinho-itens h2 {
+    color: #224F34;
+    margin-top: 30px;
+}
+
+.carrinho-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.carrinho-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 300px;
+    margin: auto;
+}
+
+.carrinho-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.carrinho-info h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #224F34;
+}
+
+.carrinho-info p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.carrinho-finalizar {
+    margin-top: 30px;
+}
+
+.botao-finalizar {
+    background-color: #224F34;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.botao-finalizar:hover {
+    background-color: #1b3c29;
+}
+
+.carrinho-vazio {
+    color: #d9534f;
+    font-size: 18px;
+    font-weight: bold;
 }

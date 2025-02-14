@@ -31,7 +31,7 @@ urlpatterns = [
 
 
     path('minha_pagina/', views.minha_pagina, name='minha_pagina'),
-    path('alterar_informacoes/', views.alterar_informacoes, name='alterar_informacoes'),  # Adicione essa linha
+    path('alterar_informacoes/', views.alterar_informacoes, name='alterar_informacoes'),
     path("escolher-plano/<str:tipo>/", escolher_plano, name="escolher_plano"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

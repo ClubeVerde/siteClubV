@@ -8,6 +8,21 @@
     <title>Cadastro</title>
 </head>
 <body>
+    {% if messages %}
+    <div id="message-box">
+        {% for message in messages %}
+            <p class="message {{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    </div>
+    <script>
+        setTimeout(function() {
+            var messageBox = document.getElementById("message-box");
+            if (messageBox) {
+                messageBox.style.display = "none";
+            }
+        }, 5000);
+    </script>
+{% endif %}
     <div class="container">
         <div class="ladoEsquerdo">
             <img src="{% static 'Style/imgs/Logo.png' %}" alt="">
