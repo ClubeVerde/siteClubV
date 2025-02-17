@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="confirmar-exclusao">
+    <h2>Tem certeza de que deseja excluir sua conta?</h2>
+    <p>Essa ação não pode ser desfeita.</p>
+    <div class="botoes">
+        <a href="{% url 'editar_perfil' %}" class="botao-cancelar">Cancelar</a>
+        <a href="{% url 'excluir_conta' %}" class="botao-excluir">Confirmar Exclusão</a>
+    </div>
+</section>
+{% endblock %}

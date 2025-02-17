@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="editar-perfil-section">
+    <h2>Editar Perfil</h2>
+    
+    <div class="informacoes">
+        <h3>Informações Pessoais</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="info-item">
+                <label for="id_first_name"><strong>Nome:</strong></label>
+                {{ form.first_name }}
+            </div>
+            <div class="info-item">
+                <label for="id_last_name"><strong>Sobrenome:</strong></label>
+                {{ form.last_name }}
+            </div>
+            <div class="info-item">
+                <label for="id_email"><strong>Email:</strong></label>
+                {{ form.email }}
+            </div>
+            <div class="info-item">
+                <label for="id_telefone"><strong>Telefone:</strong></label>
+                {{ form.telefone }}
+            </div>
+            <div class="info-item">
+                <label for="id_cpf"><strong>CPF:</strong></label>
+                {{ form.cpf }}
+            </div>
+            <div class="info-item">
+                <label for="id_rua"><strong>Rua:</strong></label>
+                {{ form.rua }}
+            </div>
+            <div class="info-item">
+                <label for="id_numero"><strong>Número:</strong></label>
+                {{ form.numero }}
+            </div>
+            <div class="info-item">
+                <label for="id_bairro"><strong>Bairro:</strong></label>
+                {{ form.bairro }}
+            </div>
+            <div class="info-item">
+                <label for="id_cidade"><strong>Cidade:</strong></label>
+                {{ form.cidade }}
+            </div>
+            <div class="info-item">
+                <label for="id_estado"><strong>Estado:</strong></label>
+                {{ form.estado }}
+            </div>
+            <div class="info-item">
+                <label for="id_cep"><strong>CEP:</strong></label>
+                {{ form.cep }}
+            </div>
+            <div class="info-item">
+                <label for="id_referencia"><strong>Referência:</strong></label>
+                {{ form.referencia }}
+            </div>
+            <div class="info-item">
+                <label for="id_senha_atual"><strong>Senha Atual:</strong></label>
+                {{ form.senha_atual }}
+            </div>
+                <button type="submit" class="botao-escolher">Salvar alterações</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

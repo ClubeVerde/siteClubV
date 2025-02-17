@@ -106,27 +106,22 @@
     </section>
 
     <section class="container-feedback">
-      <h1 class="titulo">FEEDBACK</h1>
+      <h1 class="titulo">AVALIAÇÕES DOS USUÁRIOS</h1>
       <main class="content-feedback">
-        <div class="card">
-          <p class="title">“</p>
-          <h3>NATHAN CADMIEL</h3>
-          <p>Assinei o primeiro mês e gostei muito. Tem até um fofoquinho do clube da plantinha! 🌱</p>
-        </div>
-        <div class="card">
-          <p class="title">“</p>
-          <h3>JURANDIR BARBOSA</h3>
-          <p>Comprei pelo plano empresarial para meu consultório e foi um preço bem acessível. Gostei do um novo ar.</p>
-        </div>
-        <div class="card">
-          <p class="title">“</p>
-          <h3>PÂMELA SANTOS</h3>
-          <p>Minha mãe e eu amamos plantar. Plano de orquídeas foi a melhor decisão!</p>
-        </div>
+          {% for avaliacao in avaliacoes %}
+              <div class="card">
+                  <p class="title">“</p>
+                  <h3>{{ avaliacao.usuario.username }}</h3>
+                  <p>Nota: {{ avaliacao.nota }}/5</p>
+                  <p>{{ avaliacao.comentario }}</p>
+              </div>
+          {% empty %}
+              <p>Nenhuma avaliação disponível no momento.</p>
+          {% endfor %}
       </main>
       <div class="button-row">
-        <button>⬅</button>
-        <button>➡</button>
+          <button>⬅</button>
+          <button>➡</button>
       </div>
     </section>
 
@@ -135,22 +130,22 @@
         <div class="rede-social">
           <h1>REDE SOCIAL</h1>
           <div>
-            <a href=""><button><img src="{% static 'Style/imgs/icons8-instagram-50 (1).png' %}" alt=""></button></a>
-            <a href=""><button><img src="{% static 'Style/imgs/icons8-facebook-novo-50 (1).png' %}" alt=""></button></a>
+            <a href="https://www.instagram.com/club.everde?igsh=OWV2OWt0ejNncjlr"><button><img src="{% static 'Style/imgs/icons8-instagram-50 (1).png' %}" alt=""></button></a>
+            <a href="https://www.instagram.com/club.everde?igsh=OWV2OWt0ejNncjlr"><button><img src="{% static 'Style/imgs/icons8-facebook-novo-50 (1).png' %}" alt=""></button></a>
           </div>
         </div>
         <nav class="navegar">
           <h1>NAVEGAÇÃO</h1>
             <div class="link">
-                <a href="{% url 'sobre_nos' %}">SOBRE NÓS</a>
+                <a href="{% url 'sobre_nos' %}" class="link-topo">SOBRE NÓS</a>
                 <a href="{% url 'loja' %}" class="link-topo">LOJA</a>
-                <a href="{% url 'planos' %}">PLANOS</a>
-                <a href="{% url 'contato' %}">CONTATO</a>
+                <a href="{% url 'planos' %}" class="link-topo">PLANOS</a>
+                <a href="{% url 'contato' %}" class="link-topo">CONTATO</a>
             </div>
         </nav>
         <div class="contato">
           <h1>ENTRE EM CONTATO</h1>
-          <p>CLUBEVERDE@GMAIL.COM</p>
+          <p>CLUBEVERDECONTATO@GMAIL.COM</p>
         </div>
         <form action="" class="email">
           <h1>RECEBA AS NOVIDADES</h1>

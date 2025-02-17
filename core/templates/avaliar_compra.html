@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Avaliar Compra{% endblock %}
+
+{% block content %}
+<section class="avaliar-compra-section">
+    <h2>Avaliar Produto: {{ produto.nome }}</h2>
+
+    <div class="avaliacao-form">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="botao-escolher">Enviar Avaliação</button>
+        </form>
+    </div>
+
+    <div class="voltar-link">
+        <a href="{% url 'minha_pagina' %}" class="botao-excluir">Voltar</a>
+    </div>
+</section>
+{% endblock %}

@@ -18,7 +18,7 @@
                             Adicionar ao Carrinho
                         </a>
                     {% else %}
-                        <p>Faça <a href="{% url 'login' %}">login</a> para adicionar ao carrinho.</p>
+                        <p>Faça <a href="{% url 'login' %}" class="link-login">login</a> para adicionar ao carrinho.</p>
                     {% endif %}
                 </div>
             {% empty %}

@@ -1,95 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:wght@400;700&display=swap');
-
 body {
-    font-family: "Roboto", serif;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-  }
-  
-.Container {
-    width: 100%;
-    border-radius: 10px;
-    align-items: center;
 }
 
-.logo{
-    width: 300px;
-}
-
-.topo{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-
-.title{
-    text-align: center;
-    font-size: 50px;
-    color: #224F34;
-}
-
-.login{
-    display: grid;
-    align-items: center;
-    justify-content: center;
-}
-
-.campos{
-    padding: 10px;
-    padding-right: 100px;
-    border-radius: 5px;
-    margin-left: 30px;
-    margin-bottom: 15px;
-    border-width: 1px;
-}
-
-label{
-    font-size: 25px;
-}
-
-.esqueceuSenha{
-    display: grid;
-    justify-content: flex-end;
-    font-size: 10px;
-    color: black;
-}
-
-.submit{
+.container {
+    background-color: white;
     padding: 20px;
-    font-size: 30px;
-    background-color: #C2EFD4;
-    border: none;
     border-radius: 10px;
-
-}
-
-.Cadastro{
-    display: grid;
-    justify-content: center;
-    margin-top: 15px;
-    color:black;
-}
-.messages {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 320px;
     text-align: center;
-    margin: 10px auto;
-    padding: 10px;
-    width: 80%;
 }
 
-.message {
+.topo {
+    margin-bottom: 15px;
+}
+
+.logo {
+    width: 120px;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 20px;
+    color: #267D49;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.campos {
     padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.error-messages {
+    background-color: #ffdddd;
+    color:  #1e5f3a;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.submit {
+    background-color: #267D49;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #1e5f3a;
+}
+
+.esqueceuSenha, .Cadastro {
+    font-size: 13px;
+    color: #267D49;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.Cadastro {
     font-weight: bold;
-}
-
-.danger { 
-    background-color: #ffcccc; /* Vermelho claro */
-    color: #cc0000; /* Vermelho escuro */
-}
-
-.success { 
-    background-color: #ccffcc; /* Verde claro */
-    color: #006600; /* Verde escuro */
 }

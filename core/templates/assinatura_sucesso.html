@@ -1,7 +1,0 @@
-{% extends "base.html" %}
-
-{% block content %}
-  <h2>Assinatura Confirmada!</h2>
-  <p>Você assinou o plano {{ pedido.assinatura.tipo }} por R$ {{ pedido.assinatura.preco }}/mês.</p>
-  <a href="{% url 'home' %}">Voltar para a Home</a>
-{% endblock %}

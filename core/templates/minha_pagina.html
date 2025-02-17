@@ -1,30 +1,75 @@
-<!-- minha_pagina.html -->
 {% extends 'base.html' %}
+
 {% block content %}
+<section class="minha-pagina-section">
     <h2>Minha Página</h2>
+
     <div class="informacoes">
-        <p><strong>Nome:</strong> {{ user.username }}</p>
-        <a href="{% url 'alterar_informacoes' %}">Alterar informações</a>
+        <h3>Informações Pessoais</h3>
+        <div class="info-item">
+            <p><strong>Nome:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+        </div>
+        <div class="info-item">
+            <p><strong>Email:</strong> {{ user.email }}</p>
+        </div>
+        <div class="info-item">
+            <p><strong>Telefone:</strong> {{ user.telefone }}</p>
+        </div>
+        <div class="info-item">
+            <p><strong>CPF:</strong> {{ user.cpf }}</p>
+        </div>
+        <div class="info-item">
+            <p><strong>Endereço:</strong> {{ user.rua }}, {{ user.numero }} - {{ user.bairro }}, {{ user.cidade }} - {{ user.estado }}</p>
+        </div>
+        <div class="info-item">
+            <p><strong>CEP:</strong> {{ user.cep }}</p>
+        </div>
+        <div class="info-item">
+            <p><strong>Referência:</strong> {{ user.referencia }}</p>
+        </div>
+        <div>
+            <a href="{% url 'verificar_senha' %}" class="botao-escolher">Editar Informações</a>
+            <a href="{% url 'confirmar_exclusao_conta' %}" class="botao-excluir">Excluir Conta</a>
+        </div>
     </div>
 
     <div class="pedidos">
         <h3>Meus Pedidos</h3>
         {% for pedido in pedidos %}
-            <p>Pedido #{{ pedido.id }} - {{ pedido.status }}</p>
+            <div class="pedido-item">
+                <p>Pedido #{{ pedido.id }} - {{ pedido.status }}</p>
+                <a href="{% url 'avaliar_compra' pedido.id %}" class="botao-escolher">
+                    Avaliar Compra
+                </a>
+            </div>
         {% empty %}
             <p>Você ainda não fez nenhum pedido.</p>
         {% endfor %}
     </div>
-
+    
+    {% if assinatura %}
     <div class="assinatura">
         <h3>Plano de Assinatura</h3>
+        <p><strong>Plano:</strong> {{ assinatura.plano.nome }}</p>
+        <p><strong>Valor:</strong> R$ {{ assinatura.plano.preco }}</p>
+        <p><strong>Status:</strong> {{ assinatura.status }}</p>
+        <p><strong>Dias restantes:</strong> {{ dias_restantes }}</p>
+
         {% if assinatura %}
-            <p>Tipo de plano: {{ assinatura.tipo }}</p>
-            <a href="{% url 'alterar_plano' %}">Mudar de plano</a> | 
-            <a href="{% url 'prorrogar_plano' %}">Prorrogar plano</a> | 
-            <a href="{% url 'cancelar_plano' %}">Cancelar plano</a>
-        {% else %}
-            <p>Você ainda não possui um plano de assinatura.</p>
+        {% if assinatura.status == 'ativa' %}
+            <a href="{% url 'cancelar_plano' assinatura_id=assinatura.id confirmacao='sim' %}">
+                <button class="botao-escolher">Cancelar assinatura</button>
+            </a>
+        {% elif assinatura.status == 'cancelada' %}
+            <a href="{% url 'retomar_plano' assinatura_id=assinatura.id confirmacao='sim' %}">
+                <button class="botao-escolher">Retomar assinatura</button> 
+            </a>
+        {% endif %}
         {% endif %}
     </div>
+    {% else %}
+    <h3>Plano de Assinatura</h3>
+    <p>Você ainda não possui um plano de assinatura.</p>
+    {% endif %}
+</section>
 {% endblock %}

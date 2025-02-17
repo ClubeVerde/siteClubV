@@ -9,6 +9,7 @@
         <th>Produto/Assinatura</th>
         <th>Status</th>
         <th>Data</th>
+        <th>Avaliação</th>
       </tr>
     </thead>
     <tbody>
@@ -24,9 +25,14 @@
           </td>
           <td>{{ pedido.status }}</td>
           <td>{{ pedido.data_pedido }}</td>
+          <td>
+            <a href="{% url 'avaliar_compra' pedido.id %}" class="botao-avaliar">
+              Avaliar Compra
+            </a>
+          </td>
         </tr>
       {% empty %}
-        <tr><td colspan="4" class="text-center">Nenhum pedido encontrado.</td></tr>
+        <tr><td colspan="5" class="text-center">Nenhum pedido encontrado.</td></tr>
       {% endfor %}
     </tbody>
   </table>
